@@ -18,7 +18,7 @@ var burger = {
       orm.insertOne(burger_id, function (res) {
          cb(res);
       });
-   };
+   }
 };
 
 module.exports = burger;
