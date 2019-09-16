@@ -37,6 +37,21 @@
    <h1 class="burger-title">Eat Me!</h1>
 
    {{!-- Add content from index.handlebars --}}
+   {{{body}}}
+
+   {{!-- Create the burger --}}
+   <form action="burger/create" method="POST">
+      <div class="row">
+         <div class="col-sm-6">
+            <label for="create-burger" class="burger-label">Create your burger and be ready to taste test your
+               creation!</label>
+            <textarea class="form-control" columns="8" rows="4" id="new-burger" name="burger_name"></textarea>
+         </div>
+      </div>
+      <center>
+         <button id="submit-button" type="submit" class="btn btn-danger">Create your burger!</button>
+      </center>
+   </form>
 </body>
 
 </html>
