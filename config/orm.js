@@ -4,7 +4,7 @@ var connection = require("./connection.js");
 // Creating orm
 var orm = {
    selectAll: function (cb) {
-      var queryString = "SELECT * FROM ";
+      var queryString = "SELECT * FROM burgers";
       connection.query(queryString,
          function (error, result) {
             if (error)

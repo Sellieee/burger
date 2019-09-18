@@ -3,7 +3,7 @@
 var orm = require("../config/orm.js")
 
 // Calling the orm functions
-var burger = {
+var burgers = {
    selectAll: function (cb) {
       orm.selectAll(function (res) {
          cb(res);
@@ -21,4 +21,4 @@ var burger = {
    }
 };
 
-module.exports = burger;
+module.exports = burgers;
