@@ -5,6 +5,9 @@ var PORT = process.env.PORT || 8989;
 
 var app = express();
 
+// Use the express handlebars npm package
+var exphbs = require("express-handlebars");
+
 // Serve static content from the public directory
 app.use(express.static("public"));
 
@@ -13,9 +16,6 @@ app.use(express.urlencoded({
    extended: true
 }));
 app.use(express.json());
-
-// Use the express handlebars npm package
-var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({
    defaultLayout: "main"
