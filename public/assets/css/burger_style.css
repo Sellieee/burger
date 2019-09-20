@@ -1,0 +1,41 @@
+body {
+   margin: 0px 30px;
+   padding-bottom: 40px;
+}
+
+footer {
+   height: 40px;
+}
+
+.burger-title {
+   text-align: center;
+   font-family: 'Amatic SC', cursive;
+   font-weight: bold;
+   font-size: 600%;
+}
+
+.burgers-h4 {
+   font-family: 'Amatic SC', cursive;
+   font-weight: bold;
+   font-size: 300%;
+}
+
+#burger-label {
+   font-family: 'Amatic SC', cursive;
+   font-weight: bold;
+   font-size: 150%;
+}
+
+#submit-button {
+   font-family: 'Amatic SC', cursive;
+   font-size: 150%;
+}
+
+#devour-button {
+   font-family: 'Amatic SC', cursive;
+   font-size: 150%;
+}
+
+#devouredbutton {
+   font-family: 'Amatic SC', cursive;
+   font-size: 150%;

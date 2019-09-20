@@ -8,7 +8,7 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
    {{!-- Burger Favicon! --}}
-   <link rel="icon" href="/burger/public/assets/img/favicon.ico">
+   <link rel="icon" href="./assets/img/favicon.ico">
 
    {{!-- Bootstrap --}}
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -24,34 +24,56 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"></script>
 
+   {{!-- Google Fonts --}}
+   <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
+
    {{!-- My Css --}}
-   <link rel="stylesheet" href="/burger/public/assets/css/burger_style.css">
+   <link rel="stylesheet" type="text/css" href="./assets/css/burger_style.css">
    <title>Eat Me!</title>
 </head>
 
 <body>
    <div class="container">
-      <img src="/burger/public/assets/img/Sellieees burger.jpg">
+      <center><img src="./assets/img/Sellieees burger.jpg" height="300px" "style=margin:0 auto"></center>
    </div>
-   <hr>
-   <h1 class="burger-title">Eat Me!</h1>
 
    {{!-- Add content from index.handlebars --}}
    {{{body}}}
 
    {{!-- Create the burger --}}
-   <form action="burger/create" method="POST">
+   <br>
+   <hr>
+   <br>
+   <form action="burgers/create" method="POST">
       <div class="row">
-         <div class="col-sm-6">
-            <label for="create-burger" class="burger-label">Create your burger and be ready to taste test your
-               creation!</label>
-            <textarea class="form-control" columns="8" rows="4" id="new-burger" name="burger_name"></textarea>
+         <div class="col-sm-12">
+            <center>
+               <label for="create-burger" id="burger-label">Create your burger and be ready to taste test your
+                  creation!</label>
+               <textarea class="form-control" columns="8" rows="4" id="new-burger" name="burger_name"></textarea>
+               <br>
+               <button id="submit-button" type="submit" class="btn btn-danger">Create your burger!</button>
          </div>
       </div>
-      <center>
-         <button id="submit-button" type="submit" class="btn btn-danger">Create your burger!</button>
       </center>
    </form>
+   {{!-- <script>
+      $(document).ready(function () {
+         $("#submit-button").on("click", function (event) {
+            event.preventDefault();
+            var newBurger = {
+               name: $("#create-burger").val().trim()
+            };
+            $.ajax("/burgers/create", {
+               type: "POST",
+               data: newBurger
+            }).then(function () {
+               console.log("New burger created!");
+            });
+            window.location.reload();
+         });
+      });
+   </script> --}}
 </body>
 
 </html>

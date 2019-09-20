@@ -1,4 +1,4 @@
--- Remove burgers_db if it already exists
+	-- Remove burgers_db if it already exists
 DROP DATABASE IF EXISTS burgers_db;
 
 -- Create burgers_db

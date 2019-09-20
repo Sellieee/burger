@@ -19,7 +19,7 @@ router.get("/burgers", function (req, res) {
          burgers: result
       };
       console.log(hbsObject);
-      res.render("/index", hbsObject);
+      res.render("index", hbsObject);
    });
 });
 
@@ -29,17 +29,13 @@ router.post("/burgers/create", function (req, res) {
       res.json({
          burger_name: result.burger_name
       });
-      result.redirect("/burgers");
+      result.redirect("burgers");
    });
 });
 
 // Route for Devouring burgers 
 router.put("/burgers/update/:id", function (req, res) {
    burgers.updateOne([req.params.id], function (result) {
-      if (result.changedRows === 0) {
-         return result.status(404).end();
-      }
-      result.status(200).end();
       result.redirect("/burgers");
    });
 });
