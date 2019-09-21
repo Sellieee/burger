@@ -13,6 +13,7 @@ var orm = {
          });
    },
    insertOne: function (name, cb) {
+      console.log('name', name)
       var queryString = "INSERT INTO burgers SET (?)";
       connection.query(queryString, [name], function (error, result) {
          if (error) throw error;
