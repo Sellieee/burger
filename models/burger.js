@@ -9,8 +9,8 @@ var burgers = {
          cb(res);
       });
    },
-   updateOne: function (burger_name, cb) {
-      orm.updateOne(burger_name, function (res) {
+   updateOne: function (devoured, burger_name, cb) {
+      orm.updateOne(devoured, burger_name, function (res) {
          cb(res);
       });
    },

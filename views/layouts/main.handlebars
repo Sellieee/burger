@@ -65,11 +65,10 @@
    </form>
    <script>
       $(document).ready(function () {
-         console.log('scri[ts running')
          $("#submit-button").on("click", function (event) {
             event.preventDefault();
             var newBurger = {
-               name: $("#burger-label").val().trim()
+               burger_name: $("#new-burger").val().trim()
             };
             console.log(newBurger);
             $.ajax("/burgers/create", {

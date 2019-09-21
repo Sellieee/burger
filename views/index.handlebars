@@ -10,15 +10,14 @@
       <h4 class="burgers-h4">Burgers to eat: </h4>
       {{#each burgers}}
       {{#unless devoured}}
-      <form action="burgers/update/{{this.id}}" method="POST">
-         <div class="input-group">
-            <li class="form-control">{{id}}. {{burger_name}}</li>
-            <input type="hidden" name="devoured" value="true">
-            <span class="input-group-btn">
-               <button class="btn btn-info devour-button" id="devour-button" type="submit">Devour It!
-               </button>
-            </span>
-         </div>
+      <div class="input-group">
+         <li class="form-control">{{id}}. {{burger_name}}</li>
+         <input type="hidden" name="devoured" value="true">
+         <span class="input-group-btn">
+            <button class="btn btn-info devour-button" data-id={{id}} type="submit">Devour It!
+            </button>
+         </span>
+      </div>
       </form>
       {{/unless}}
       {{/each}}
@@ -33,7 +32,7 @@
          <div class="input-group">
             <li class="form-control">{{this.id}}. {{this.burger_name}}</li>
             <span class="input-group-btn">
-               <button class="btn btn info devoured-button" id="devoured-button" type="button">Devoured!</button>
+               <button class="btn btn info devoured-button" type="button">Devoured!</button>
             </span>
          </div>
          {{/if}}
@@ -41,3 +40,18 @@
       </div>
    </div>
 </div>
+<script>
+   $(document).ready(function () {
+      $(".devour-button").on("click", function (event) {
+         event.preventDefault();
+         var id = $(this).data("id");
+         console.log(id);
+         $.ajax("/burgers/update/" + id, {
+            type: "PUT",
+         }).then(function () {
+            console.log("Mmm yum, that was delish!");
+         });
+         window.location.reload();
+      });
+   });
+</script>

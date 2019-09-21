@@ -16,3 +16,4 @@ CREATE TABLE burgers (
    -- Boolean with the 'not eaten' status as false
    devoured BOOLEAN default false
 );
+SELECT * FROM burgers
