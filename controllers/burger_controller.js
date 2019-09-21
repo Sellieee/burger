@@ -25,7 +25,7 @@ router.get("/burgers", function (req, res) {
 
 // Route for Creating burgers
 router.post("/burgers/create", function (req, res) {
-   console.log(req.body)
+   // console.log(req.body)
    burgers.insertOne([req.body.burger_name], function (result) {
       res.redirect("/burgers");
    });
@@ -34,8 +34,8 @@ router.post("/burgers/create", function (req, res) {
 // Route for Devouring burgers 
 router.put("/burgers/update/:id", function (req, res) {
    console.log(req.params.id);
-   burgers.updateOne(true, req.params.id, function (result) {
-      console.log('result ******', result)
+   burgers.updateOne(true, [req.params.id], function (result) {
+      // console.log('result ******', result)
       res.redirect("/burgers");
    });
 });

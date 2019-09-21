@@ -14,7 +14,7 @@ var orm = {
          });
    },
    insertOne: function (burger_name, cb) {
-      console.log('name', burger_name)
+      // console.log('name', burger_name)
       var queryString = "INSERT INTO burgers (burger_name) VALUES (?)";
       connection.query(queryString, [burger_name], function (error, result) {
          if (error) throw error;
@@ -23,11 +23,10 @@ var orm = {
    },
    updateOne: function (devoured, burger_id, cb) {
       var queryString = "UPDATE burgers SET devoured=(?) WHERE id=(?)";
-      console.log("devoured", devoured);
-      console.log("id", burger_id);
+      // console.log("devoured", devoured);
+      // console.log("id", burger_id);
       connection.query(queryString, [devoured, burger_id], function (error, result) {
          if (error) {
-            console.log('******')
             throw error;
          }
          cb(result);

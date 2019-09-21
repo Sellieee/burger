@@ -11,10 +11,14 @@
       {{#each burgers}}
       {{#unless devoured}}
       <div class="input-group">
+         <audio id="chomp" preload="auto">
+            <source src="./assets/sound/chomp.mp3">
+            </source>
+         </audio>
          <li class="form-control">{{id}}. {{burger_name}}</li>
          <input type="hidden" name="devoured" value="true">
          <span class="input-group-btn">
-            <button class="btn btn-info devour-button" data-id={{id}} type="submit">Devour It!
+            <button class="btn btn-info devour-button" data-id={{id}} id="eat-it" type="submit">Devour It!
             </button>
          </span>
       </div>
@@ -32,7 +36,7 @@
          <div class="input-group">
             <li class="form-control">{{this.id}}. {{this.burger_name}}</li>
             <span class="input-group-btn">
-               <button class="btn btn info devoured-button" type="button">Devoured!</button>
+               <button class="btn btn info devoured-button" type="text">Devoured!</button>
             </span>
          </div>
          {{/if}}
@@ -47,10 +51,13 @@
          var id = $(this).data("id");
          console.log(id);
          $.ajax("/burgers/update/" + id, {
-            type: "PUT",
-         }).then(function () {
+            type: "PUT"
+         }).then(function (alert) {
             console.log("Mmm yum, that was delish!");
          });
+         var audio = $("#chomp")[0];
+         audio.play();
+         alert("Mmm yum, that was delish!");
          window.location.reload();
       });
    });

@@ -25,8 +25,6 @@
       crossorigin="anonymous"></script>
 
    {{!-- jQuery --}}
-   ode Integration
-   Close
    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
       crossorigin="anonymous"></script>
 
@@ -41,6 +39,10 @@
 <body>
    <div class="container">
       <center><img src="./assets/img/Sellieees burger.jpg" height="300px" "style=margin:0 auto"></center>
+      <audio id="ding" preload="auto">
+         <source src="./assets/sound/ringring.wav">
+         </source>
+      </audio>
    </div>
 
    {{!-- Add content from index.handlebars --}}
@@ -77,6 +79,8 @@
             }).then(function () {
                console.log("New burger created!");
             });
+            var audio = $("#ding")[0];
+            audio.play();
             window.location.reload();
          });
       });
